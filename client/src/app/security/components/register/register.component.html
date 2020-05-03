@@ -8,23 +8,28 @@
         <mat-label>Email</mat-label>
         <input matInput [(ngModel)]="email" placeholder="Email" type="email" required>
       </mat-form-field>
+
       <mat-form-field appearance="outline">
         <mat-label>First Name</mat-label>
         <input matInput [(ngModel)]="firstName" placeholder="First Name" type="text" required>
       </mat-form-field>
+
       <mat-form-field appearance="outline">
         <mat-label>Last Name</mat-label>
         <input matInput [(ngModel)]="lastName" placeholder="Last Name" type="text" required>
       </mat-form-field>
+
       <mat-form-field appearance="outline">
         <mat-label>Password</mat-label>
         <input matInput [(ngModel)]="password" placeholder="Password" type="password" (change) = "passwordMatch()"required>
       </mat-form-field>
+
       <mat-form-field appearance="outline">
         <mat-label>Confirm Password</mat-label>
         <input matInput [(ngModel)]="passwordC" placeholder="Confirm Password" type="password" (change) = "passwordMatch()" required>
         <span class="error" *ngIf="matched"> Password does not match </span>
       </mat-form-field>
+
       <mat-form-field appearance="outline">
         <mat-label>Sex</mat-label>
         <mat-select [(ngModel)]="gender" placeholder="Gender" type="text" required>
@@ -32,14 +37,29 @@
           <mat-option *ngFor="let gender of genders" [value]="gender">{{gender}}</mat-option>
         </mat-select>
       </mat-form-field>
+
       <mat-form-field appearance="outline">
         <mat-label> Birthdate</mat-label> 
         <input matInput [matDatepicker]="myDatepicker" placeholder="birth date" (dateChange)="addEvent($event)" required>
         <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
         <mat-datepicker #myDatepicker></mat-datepicker>
       </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Security Question</mat-label>
+        <mat-select [(ngModel)]="questions" placeholder="Security Question" type="text" required>
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let questions of questions" [value]="questions">{{questions}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Security Question Answer</mat-label>
+        <input matInput [(ngModel)]="answer" placeholder="Answer" type="text" required>
+      </mat-form-field>
+      
       <button mat-flat-button color=primary (click)="registerClick()" type="submit">
-        Sign In
+        Sign Up
       </button>
     </div>
   </mat-card-content>

@@ -76,7 +76,8 @@ export class AuthService {
     firstName: string,
     lastName: string,
     gender: String,
-    birthdate: String
+    birthdate: String,
+    question: String
 
   ) {
     return this._http

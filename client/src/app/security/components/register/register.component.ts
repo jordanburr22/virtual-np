@@ -18,13 +18,26 @@ export class RegisterComponent implements OnInit {
   age: number;
   birthdate: string;
   matched: boolean;
+  question: string;
 
   constructor(private _authSvc: AuthService) { }
 
   genders: string[] = [
     'Male', 'Female'
   ];
+
   ages: number[] = [];
+
+  questions: string[] = [
+    'What is the make and model of your first car?',
+    'What is the first name of your first roommate?',
+    'In what city were you born?',
+    'What is the name of your first pet?',
+    'What is the name of the street you grew up on?',
+    'What is the first name of your oldest sibling?',
+    'What is the first name of your youngest sibling?',
+    'In what city did you and your spouse meet?'
+  ];
   
   addEvent(event: MatDatepickerInputEvent<Date>) {
     var date = new Date(`${event.value}`);
@@ -39,14 +52,15 @@ export class RegisterComponent implements OnInit {
       this.firstName,
       this.lastName,
       this.gender,
-      this.birthdate
+      this.birthdate,
+      this.question
     ).subscribe(
       data => console.log('Data:' + data),
       err => console.log(err)
     );
   }
   ngOnInit() {
-    this.email = this.password = this.firstName = this.lastName = this.gender = this.passwordC = this.birthdate = '';
+    this.email = this.password = this.firstName = this.lastName = this.gender = this.passwordC = this.birthdate = this.question = '';
   }
 
   passwordMatch() {
