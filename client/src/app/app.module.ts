@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { SecurityModule } from './security/security.module';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppComponent } from './app.component';
@@ -32,6 +32,7 @@ import { PaypalPageComponent } from './pages/paypal-page/paypal-page.component';
 import { TermsComponent} from './components/terms/terms.component'
 import { MatDialogModule } from '@angular/material';
 import { NPmailService } from './services/npmail.service'; 
+import { ScheduleVisitComponent } from './pages/schedule-visit-page/schedule-visit.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { NPmailService } from './services/npmail.service';
     NpLandingPageComponent,
     NpVisitPageComponent,
     PaypalPageComponent,
-    TermsComponent
+    TermsComponent,
+    ScheduleVisitComponent
   ],
   imports: [
     AppRoutingModule,

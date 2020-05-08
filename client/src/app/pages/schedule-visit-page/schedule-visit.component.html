@@ -1,0 +1,10 @@
+<div class="page-container">
+    <mat-card-title id="form-title">Schedule Your Visit</mat-card-title>
+    <mat-form-field>
+      <mat-label id="label">Type of visit</mat-label>
+      <select matNativeControl required id="type">
+        <option value="Default">Select Type of Visit</option>
+        <option *ngFor="let type of visitTypes">{{ type }}</option>
+      </select>
+    </mat-form-field>
+</div>
