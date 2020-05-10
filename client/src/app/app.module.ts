@@ -31,7 +31,10 @@ import { NpVisitPageComponent } from './pages/np-visit-page/np-visit-page.compon
 import { PaypalPageComponent } from './pages/paypal-page/paypal-page.component';
 import { TermsComponent} from './components/terms/terms.component'
 import { MatDialogModule } from '@angular/material';
-import { NPmailService } from './services/npmail.service'; 
+import { NPmailService } from './services/npmail.service';
+import { PatientSignUpComponent } from './pages/patient-sign-up/patient-sign-up.component';
+import { NpSignUpComponent } from './pages/np-sign-up/np-sign-up.component';
+import { NpVerifyPageComponent } from './pages/np-verify-page/np-verify-page.component'; 
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import { NPmailService } from './services/npmail.service';
     NpLandingPageComponent,
     NpVisitPageComponent,
     PaypalPageComponent,
-    TermsComponent
+    TermsComponent,
+    PatientSignUpComponent,
+    NpSignUpComponent,
+    NpVerifyPageComponent
   ],
   imports: [
     AppRoutingModule,

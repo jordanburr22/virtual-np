@@ -14,6 +14,9 @@ import { NpLandingPageComponent } from './pages/np-landing-page/np-landing-page.
 import { NpVisitPageComponent } from './pages/np-visit-page/np-visit-page.component';
 import { UserDataEditPageComponent } from './pages/user-data-edit-page/user-data-edit-page.component';
 import { PaypalPageComponent } from './pages/paypal-page/paypal-page.component';
+import { PatientSignUpComponent } from './pages/patient-sign-up/patient-sign-up.component';
+import { NpSignUpComponent } from './pages/np-sign-up/np-sign-up.component';  
+import { NpVerifyPageComponent } from './pages/np-verify-page/np-verify-page.component'; 
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -29,6 +32,9 @@ const routes: Routes = [
   { path: 'np-landing-page', component: NpLandingPageComponent, canActivate: [AuthGuard]},
   { path: 'np-visit-page', component: NpVisitPageComponent},
   { path: 'paypal-page', component: PaypalPageComponent },
+  { path: 'patient-sign-up', component: PatientSignUpComponent },
+  { path: 'np-sign-up', component: NpSignUpComponent },
+  { path: 'np-verification', component: NpVerifyPageComponent },
  
 ];
 

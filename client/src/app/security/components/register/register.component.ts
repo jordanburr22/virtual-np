@@ -49,6 +49,7 @@ export class RegisterComponent implements OnInit {
       this.gender,
       this.birthdate,
       this.checked,
+      true
     ).subscribe(
       data => console.log('Data:' + data),
       err => console.log(err)

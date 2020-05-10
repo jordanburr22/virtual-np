@@ -77,7 +77,8 @@ export class AuthService {
     lastName: string,
     gender: String,
     birthdate: String,
-    checked: boolean
+    checked: boolean,
+    patient: boolean
   ) {
     return this._http
     .post(
@@ -90,14 +91,18 @@ export class AuthService {
         passwordC: passwordC,
         gender: gender,
         birthdate: birthdate,
-        checked: checked
+        checked: checked,
+	patient: patient
       },
       { headers: this.headers }
     )
     .pipe(
       map((user: any) => {
         this._userSvc.setUser(user);
-        this.router.navigate(['landing-page']);
+	if (patient)
+        	this.router.navigate(['landing-page']);
+	else 
+		this.router.navigate(['np-landing-page']);
         return user;
       })
     );

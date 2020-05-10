@@ -1,0 +1,28 @@
+<mat-card id="verify-card">
+  <mat-card-header>
+    <mat-card-title>Verification</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="form-container" (keyup.enter)="verifyClick()">
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput [(ngModel)]="firstName" placeholder="First Name" type="text" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput [(ngModel)]="lastName" placeholder="Last Name" type="text" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="email" placeholder="Email" type="email" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <input matInput [(ngModel)]="phone" placeholder="(###) ###-####" type="text" required>
+      </mat-form-field>
+      <button mat-flat-button color=primary (click)="verifyClick()" type="submit" routerLink='/np-sign-up'>
+        Verify
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>
