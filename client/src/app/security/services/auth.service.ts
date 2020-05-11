@@ -42,7 +42,13 @@ export class AuthService {
     .pipe(
       map((user: any) => {
         this._userSvc.setUser(user);
-        this.router.navigate(['np-landing-page']);
+	if (this._userSvc.getRole() == "Client"){
+		alert("You do not have an authorized NP account. Rerouting to Patient Landing");
+		this.router.navigate(['landing-page']);
+
+	} else if (this._userSvc.getRole() == "Admin"){
+        	this.router.navigate(['np-landing-page']);
+	}
         return user;
       })
     );
@@ -58,7 +64,12 @@ export class AuthService {
     .pipe(
       map((user: any) => {
         this._userSvc.setUser(user);
-        this.router.navigate(['landing-page']);
+	if (this._userSvc.getRole() == "Client"){
+		this.router.navigate(['landing-page']);
+	} else if (this._userSvc.getRole() == "Admin"){
+		alert("You do not have a Patient account. Rerouting to NP Landing");
+        	this.router.navigate(['np-landing-page']);
+	}
         return user;
       })
     );

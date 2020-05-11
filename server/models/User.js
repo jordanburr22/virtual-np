@@ -24,8 +24,7 @@ const UserSchema = new Schema({
   role:
   {
     type: String,
-    required: true,
-    default: securityService.roles.REQUIRE_CLIENT
+    required: true
   },
   resetPasswordToken: { type: String},
   resetPasswordExpires: {type: Date}
