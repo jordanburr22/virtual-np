@@ -32,10 +32,24 @@ export class RegisterComponent implements OnInit {
   ];
   ages: number[] = [];
   
+  // validBirth used to check if the person's age is 18 years old or older
+  validBirth() {
+    if (this.birthdate == null)
+      return true;
+    var current = new Date();
+    var date = this.birthdate.split("/");
+    var age = current.getFullYear() - parseInt(date[0]);
+    var m = current.getMonth() - parseInt(date[1]) + 1;
+    var d = current.getDate() - parseInt(date[2]);
+    return age > 0 ? true : m > 0 ? true : d >= 0;
+  }
+
+  // addEvent will change birthdate when we choose a date from the calendar
   addEvent(event: MatDatepickerInputEvent<Date>) {
     var date = new Date(`${event.value}`);
     this.birthdate = date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate();
   }
+
   registerClick() {
     $('#termsE').text(
       'You must agree terms and conditions'
@@ -61,10 +75,13 @@ export class RegisterComponent implements OnInit {
     );
   }
 
+  // isChecked used to check whether or not the checkbox is being checked
   isChecked() {
     this.checked = !this.checked;
     console.log(this.checked);
   }
+  
+  // openDialog will open a new dialog window contains information of terms and conditions
   openDialog(): void {
     const dialogRef = this.dialog.open(TermsComponent, {
       width: '70%',
@@ -78,6 +95,8 @@ export class RegisterComponent implements OnInit {
       this.ages.push(i);
     }
   }
+  
+  // passwordMatch checkes if the password comfirmation is the same as the password 
   passwordMatch() {
     this.matched =  this.password !== this.passwordC;
   }
