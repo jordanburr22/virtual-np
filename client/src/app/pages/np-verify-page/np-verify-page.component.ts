@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NPmailService } from '../../services/npmail.service';
+import { Router } from '@angular/router'
 import * as $ from 'jquery'
 
 @Component({
@@ -13,14 +14,15 @@ export class NpVerifyPageComponent implements OnInit {
   lastName: string;
   email: string;
   phone: string;
+  filled: boolean;
 
- constructor(private _mailSvc: NPmailService) { }
+ constructor(private _mailSvc: NPmailService, private router: Router) { }
 
   ngOnInit() {
-    this.email = this.phone = this.firstName = this.lastName = '';
   }
 
   verifyClick() {
+    if (this.filled){
     this._mailSvc.requestVerification(
 	this.firstName,
 	this.lastName, 
@@ -30,6 +32,15 @@ export class NpVerifyPageComponent implements OnInit {
       data => console.log('Data:' + data),
       err => console.log(err)
     );
+    this.router.navigate(['np-sign-up']);
+   }
+  }
+
+  checkFilled() {
+	if (this.email.length > 0 && this.phone.length > 0 && this.firstName.length > 0 && this.lastName.length > 0)
+		this.filled = true;
+	else 
+		this.filled = false;
   }
 
 }
