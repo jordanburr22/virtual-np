@@ -18,7 +18,7 @@ export class PreviewVisitComponent {
     }
 
     onSubmit() {
-        this.toastrService.success('Confirmed!', 'Visit request was sent');
+        this.toastrService.success('Your request was recorded and sent to a nurse practioner', '');
         this.visitService.clearVisit();
     }
 

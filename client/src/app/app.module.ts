@@ -69,7 +69,9 @@ import { PreviewVisitComponent } from './pages/preview-visit-page/preview-visit.
     NgbModule,
     MatDialogModule,
     NgxSpinnerModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-center'
+    })
   ],
   providers: [
     { provide: DropdownSelectComponent, useClass: DropdownSelectComponent }
