@@ -18,8 +18,4 @@ export class VisitPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
-    console.log(this.visitService.visit);
-  }
-
 }
