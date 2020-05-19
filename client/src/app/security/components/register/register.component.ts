@@ -38,10 +38,20 @@ export class RegisterComponent implements OnInit {
       return true;
     var current = new Date();
     var date = this.birthdate.split("/");
+
     var age = current.getFullYear() - parseInt(date[0]);
     var m = current.getMonth() - parseInt(date[1]) + 1;
     var d = current.getDate() - parseInt(date[2]);
-    return age > 0 ? true : m > 0 ? true : d >= 0;
+    if (age > 18){
+      return true;
+    }else if (age == 18) {
+      if (m > 0) {
+        return true;
+      }else if (m == 0) {
+        return d >= 0;
+      }
+    }
+    return false;
   }
 
   // addEvent will change birthdate when we choose a date from the calendar
