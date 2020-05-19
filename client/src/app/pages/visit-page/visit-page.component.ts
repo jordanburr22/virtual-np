@@ -12,7 +12,7 @@ import { Visit } from 'src/app/models/visit.model';
 export class VisitPageComponent implements OnInit {
 
 
-  constructor(private visitService: VisitService) {
+  constructor() {
   }
 
   ngOnInit() {
