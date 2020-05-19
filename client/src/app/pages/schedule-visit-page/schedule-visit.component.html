@@ -1,10 +1,22 @@
 <div class="page-container">
     <mat-card-title id="form-title">Schedule Your Visit</mat-card-title>
     <mat-form-field>
-      <mat-label id="label">Type of visit</mat-label>
-      <select matNativeControl required id="type">
+      <mat-label>Type of visit</mat-label>
+      <select [(ngModel)]="visit.type" matNativeControl required id="type">
         <option value="Default">Select Type of Visit</option>
         <option *ngFor="let type of visitTypes">{{ type }}</option>
       </select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Phone</mat-label>
+      <input [(ngModel)]="visit.phone" matInput type="tel" id="phone" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input [(ngModel)]="visit.visitemail" matInput type="email" id="email" required>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Availability for upcoming days</mat-label>
+      <input [(ngModel)]="visit.timesAvailable" matInput type="text" id="availability" required>
     </mat-form-field>
 </div>

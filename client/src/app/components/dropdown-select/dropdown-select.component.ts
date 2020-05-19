@@ -28,7 +28,7 @@ export class DropdownSelectComponent implements OnInit {
   private subIDs: number[] = [];
 
   private symptomsObservables: any[] = [];
-  private symptoms: Symptom[] = [];
+  symptoms: Symptom[] = [];
 
   private tempSymptom: Symptom;
   private addedSymptoms: Symptom[] = [];
@@ -138,6 +138,7 @@ export class DropdownSelectComponent implements OnInit {
   addSymptom() {
     this.addedSymptoms.push(this.tempSymptom);
     this.hiddenHeader = false;
+    this.visitService.addSymptom(this.tempSymptom);
   }
 
   private toggleSpinner() {

@@ -33,6 +33,7 @@ import { TermsComponent} from './components/terms/terms.component'
 import { MatDialogModule } from '@angular/material';
 import { NPmailService } from './services/npmail.service'; 
 import { ScheduleVisitComponent } from './pages/schedule-visit-page/schedule-visit.component';
+import { PreviewVisitComponent } from './pages/preview-visit-page/preview-visit.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { ScheduleVisitComponent } from './pages/schedule-visit-page/schedule-vis
     NpVisitPageComponent,
     PaypalPageComponent,
     TermsComponent,
-    ScheduleVisitComponent
+    ScheduleVisitComponent,
+    PreviewVisitComponent
   ],
   imports: [
     AppRoutingModule,

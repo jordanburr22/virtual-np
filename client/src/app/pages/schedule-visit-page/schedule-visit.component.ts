@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { VisitService } from 'src/app/services/visit.service';
+import { Visit } from 'src/app/models/visit.model';
 
 @Component({
     selector: 'app-schedule-visit',
@@ -9,12 +11,14 @@ export class ScheduleVisitComponent {
 
     private visitTypes = [
         'Phone Call',
-        'Video Video'
+        'Video Call'
     ];
+    visit = new Visit();
 
-    constructor() {}
+    constructor(private visitService: VisitService) {}
 
     ngOnInit() {
+        this.visitService.addVisit(this.visit);
     }
 
 }
