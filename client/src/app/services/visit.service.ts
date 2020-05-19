@@ -16,8 +16,8 @@ export class VisitService {
         this.visit = visit;
     }
 
-    getVisit() {
-        return this.visit;
+    clearVisit() {
+        this.visit = null;
     }
 
     addSymptom(symptom: Symptom) {

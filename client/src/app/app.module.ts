@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SecurityModule } from './security/security.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import {
@@ -67,7 +68,8 @@ import { PreviewVisitComponent } from './pages/preview-visit-page/preview-visit.
     FormsModule,
     NgbModule,
     MatDialogModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     { provide: DropdownSelectComponent, useClass: DropdownSelectComponent }

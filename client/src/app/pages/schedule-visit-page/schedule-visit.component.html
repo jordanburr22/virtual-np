@@ -9,14 +9,14 @@
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Phone</mat-label>
-      <input [(ngModel)]="visit.phone" matInput type="tel" id="phone" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+      <input [(ngModel)]="visit.phone" matInput type="tel" id="phone" required pattern="[0-9]{10}">
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
       <input [(ngModel)]="visit.visitemail" matInput type="email" id="email" required>
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Availability for upcoming days</mat-label>
+      <mat-label>Availability for upcoming days (Eastern Standard Time)</mat-label>
       <input [(ngModel)]="visit.timesAvailable" matInput type="text" id="availability" required>
     </mat-form-field>
 </div>

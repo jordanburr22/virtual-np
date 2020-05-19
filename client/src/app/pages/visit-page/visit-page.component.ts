@@ -19,8 +19,7 @@ export class VisitPageComponent implements OnInit {
   }
 
   onSubmit() {
-    alert('form submitted. look in console for visits');
-    console.log(this.visitService.getVisit());
+    console.log(this.visitService.visit);
   }
 
 }
