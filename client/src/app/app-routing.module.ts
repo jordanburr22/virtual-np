@@ -7,6 +7,7 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { AdminChatPageComponent } from './pages/admin-chat-page/admin-chat-page.component';
 import { UserChatPageComponent } from './pages/user-chat-page/user-chat-page.component';
 import { AuthGuard } from './security/auth.guard';
+import { RoleGuard } from './security/role.guard';
 import { VisitPageComponent } from './pages/visit-page/visit-page.component';
 import { CalendarPageComponent } from './pages/calendar-page/calendar-page.component';
 import { UserDataPageComponent } from './pages/user-data-page/user-data-page.component';
@@ -24,14 +25,14 @@ const routes: Routes = [
   { path: 'sign-in', component: SignInPageComponent },
   { path: 'user-chat', component: UserChatPageComponent},
   { path: 'admin-chat', component: AdminChatPageComponent},
-  {path: 'landing-page',component: LandingPageComponent,canActivate: [AuthGuard],},
-  { path: 'visit-page', component: VisitPageComponent}, //, canActivate: [AuthGuard] }
-  { path: 'calendar-page', component: CalendarPageComponent},
-  { path: 'user-data-page', component: UserDataPageComponent},
-  { path: 'user-data-edit-page', component: UserDataEditPageComponent},
-  { path: 'np-landing-page', component: NpLandingPageComponent, canActivate: [AuthGuard]},
-  { path: 'np-visit-page', component: NpVisitPageComponent},
-  { path: 'paypal-page', component: PaypalPageComponent },
+  { path: 'landing-page',component: LandingPageComponent, canActivate: [AuthGuard]},
+  { path: 'visit-page', component: VisitPageComponent, canActivate: [AuthGuard] },
+  { path: 'calendar-page', component: CalendarPageComponent, canActivate: [AuthGuard]},
+  { path: 'user-data-page', component: UserDataPageComponent, canActivate: [AuthGuard]},
+  { path: 'user-data-edit-page', component: UserDataEditPageComponent, canActivate: [AuthGuard]},
+  { path: 'np-landing-page', component: NpLandingPageComponent, canActivate: [RoleGuard]},
+  { path: 'np-visit-page', component: NpVisitPageComponent, canActivate: [RoleGuard]},
+  { path: 'paypal-page', component: PaypalPageComponent, canActivate: [AuthGuard]},
   { path: 'patient-sign-up', component: PatientSignUpComponent },
   { path: 'np-sign-up', component: NpSignUpComponent },
   { path: 'np-verification', component: NpVerifyPageComponent },
