@@ -6,8 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { SecurityModule } from './security/security.module';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import {
@@ -32,6 +33,8 @@ import { PaypalPageComponent } from './pages/paypal-page/paypal-page.component';
 import { TermsComponent} from './components/terms/terms.component'
 import { MatDialogModule } from '@angular/material';
 import { NPmailService } from './services/npmail.service'; 
+import { ScheduleVisitComponent } from './pages/schedule-visit-page/schedule-visit.component';
+import { PreviewVisitComponent } from './pages/preview-visit-page/preview-visit.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,9 @@ import { NPmailService } from './services/npmail.service';
     NpLandingPageComponent,
     NpVisitPageComponent,
     PaypalPageComponent,
-    TermsComponent
+    TermsComponent,
+    ScheduleVisitComponent,
+    PreviewVisitComponent
   ],
   imports: [
     AppRoutingModule,
@@ -63,7 +68,10 @@ import { NPmailService } from './services/npmail.service';
     FormsModule,
     NgbModule,
     MatDialogModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-center'
+    })
   ],
   providers: [
     { provide: DropdownSelectComponent, useClass: DropdownSelectComponent }
