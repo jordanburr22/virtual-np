@@ -115,4 +115,38 @@ export class AuthService {
     );
   }
 
+  public edit(
+    email: String,
+    gender: String,
+    phone: String,
+    street: String,
+    city: String,
+    state: String,
+    zip: String,
+    country: String
+  ) {
+    return this._http
+    .post(
+      "http://localhost:3000/api/auth/register",
+      {
+        email: email,
+        gender: gender,
+        phone: phone,
+        street: street,
+        city: city,
+        state: state,
+        zip: zip,
+        country: country
+      },
+      { headers: this.headers }
+    )
+    .pipe(
+      map((user: any) => {
+        this._userSvc.setUser(user);
+        this.router.navigate(['landing-page']);
+        return user;
+      })
+    );
+  }
+
 }
