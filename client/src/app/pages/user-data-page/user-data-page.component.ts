@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DropdownSelectComponent } from 'src/app/components/dropdown-select/dropdown-select.component';
-import { SymptomsAPIService } from '../../services/symptomsAPI/symptoms-api.service';
+import { AuthService } from 'src/app/security/services/auth.service'
 
 @Component({
   selector: 'app-user-data-page',
@@ -9,12 +8,13 @@ import { SymptomsAPIService } from '../../services/symptomsAPI/symptoms-api.serv
 })
 export class UserDataPageComponent implements OnInit {
 
-  constructor() {
-    
+  constructor(private _authSvc: AuthService) { }
+
+  displayFirstName() {
+    this._authSvc.displayFirstName();
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }
 
