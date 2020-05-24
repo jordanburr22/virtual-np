@@ -2,37 +2,37 @@
     <mat-card id="card">
         <mat-card-title>Your Personal Data</mat-card-title>
         <mat-card-content>
-            First Name:
+            First Name: {{getFirstName()}}
         </mat-card-content>
         <mat-card-content>
-            Last Name:
+            Last Name: {{getLastName()}}
         </mat-card-content>
         <mat-card-content>
-            Date of Birth:
+            Date of Birth: {{getDOB()}}
         </mat-card-content>
         <mat-card-content>
-            Gender Identity:
+            Gender Identity: {{getGenderID()}}
         </mat-card-content>
         <mat-card-content>
-            Street Address:
+            Street Address: {{getAddress()}}
         </mat-card-content>
         <mat-card-content>
-            City:
+            City: {{getCity()}}
         </mat-card-content>
         <mat-card-content>
-            Zip Code:
+            Zip Code: {{getZip()}}
         </mat-card-content>
         <mat-card-content>
-            Country:
+            Country: {{getCountry()}}
         </mat-card-content>
         <mat-card-content>
-            State:
+            State: {{getState()}}
         </mat-card-content>
         <mat-card-content>
-            Email:
+            Email: {{getEmail()}}
         </mat-card-content>
         <mat-card-content>
-            Phone Number:
+            Phone Number: {{getPhone()}}
         </mat-card-content>
 
         <button mat-flat-button id="Submit" routerLink="/user-data-edit-page">Edit Personal Data</button>
