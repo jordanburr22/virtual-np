@@ -71,6 +71,12 @@ describe('AuthService', () => {
             const gender = 'male';
             const age = "1999/3/22";
             const checked = true;
+            const phone = "3021234567"
+            const street = "123 st"
+            const city = "Newark"
+            const state = "DE"
+            const zip = "19711"
+            const country = "USA"
             let response = null;
 
             service.register(
@@ -81,7 +87,13 @@ describe('AuthService', () => {
               lastName,
               gender,
               age,
-              checked
+              checked,
+              phone,
+              street,
+              city,
+              state,
+              zip,
+              country
             ).subscribe(
               (receivedResponse: any) => {
                 response = receivedResponse;

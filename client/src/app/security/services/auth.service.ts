@@ -77,7 +77,13 @@ export class AuthService {
     lastName: string,
     gender: String,
     birthdate: String,
-    checked: boolean
+    checked: boolean,
+    phone: String,
+    street: String,
+    city: String,
+    state: String,
+    zip: String,
+    country: String
   ) {
     return this._http
     .post(
@@ -90,7 +96,13 @@ export class AuthService {
         passwordC: passwordC,
         gender: gender,
         birthdate: birthdate,
-        checked: checked
+        checked: checked,
+        phone: phone,
+        street: street,
+        city: city,
+        state: state,
+        zip: zip,
+        country: country
       },
       { headers: this.headers }
     )
@@ -101,12 +113,6 @@ export class AuthService {
         return user;
       })
     );
-  }
-
-  public displayFirstName() {
-    return this._http.get(
-      "http://localhost:3000/api/auth/displayFirstName",
-      )
   }
 
 }
