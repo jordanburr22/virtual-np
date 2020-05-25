@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { SecurityModule } from './security/security.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -77,7 +76,6 @@ import { NpCalendarPageComponent } from './pages/np-calendar-page/np-calendar-pa
     SecurityModule,
     HttpClientModule,
     FormsModule,
-    NgbModule,
     MatDialogModule,
     NgxSpinnerModule,
     ToastrModule.forRoot({
