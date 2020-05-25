@@ -43,6 +43,36 @@
         <span class="error" *ngIf="matched"> Password does not match </span>
       </mat-form-field>
 
+      <mat-form-field appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <input matInput [(ngModel)]="phone" placeholder="Phone Number" type="phone" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Street Address</mat-label>
+        <input matInput [(ngModel)]="street" placeholder="Street Address" type="street" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>City</mat-label>
+        <input matInput [(ngModel)]="city" placeholder="City" type="city" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>State</mat-label>
+        <input matInput [(ngModel)]="state" placeholder="State" type="state" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Zip Code</mat-label>
+        <input matInput [(ngModel)]="zip" placeholder="Zip Code" type="zip" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Country</mat-label>
+        <input matInput [(ngModel)]="country" placeholder="Country" type="country" required>
+      </mat-form-field>
+
      <mat-form-field appearance="outline">
         <mat-label>Sex</mat-label>
         <mat-select [(ngModel)]="gender" placeholder="Gender" type="text" required>

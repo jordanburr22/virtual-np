@@ -23,6 +23,12 @@ export class NpSignUpComponent implements OnInit {
   age: number;
   birthdate: string;
   matched: boolean;
+  phone: String;
+  street: String;
+  city: String;
+  state: String;
+  zip: String;
+  country: String;
 
   constructor(private _authSvc: AuthService, private _mailSvc: NPmailService, public dialog: MatDialog) { }
 
@@ -56,7 +62,13 @@ export class NpSignUpComponent implements OnInit {
         this.gender,
         this.birthdate,
         true,
-        false
+        false,
+	this.phone,
+        this.street,
+        this.city,
+        this.state,
+        this.zip,
+        this.country
       ).subscribe(
         data => console.log('Data:' + data),
         err => console.log(err)

@@ -60,9 +60,9 @@ import { PreviewVisitComponent } from './pages/preview-visit-page/preview-visit.
     TermsComponent,
     PatientSignUpComponent,
     NpSignUpComponent,
-    NpVerifyPageComponent
+    NpVerifyPageComponent,
     ScheduleVisitComponent,
-    PreviewVisitComponent
+    PreviewVisitComponent,
   ],
   imports: [
     AppRoutingModule,
