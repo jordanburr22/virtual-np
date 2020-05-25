@@ -37,9 +37,6 @@ export class UserDataEditPageComponent implements OnInit {
       this.state,
       this.zip,
       this.country
-    ).subscribe(
-      data => console.log('Data:' + data),
-      err => console.log(err)
     );
   }
 
