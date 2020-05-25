@@ -1,3 +1,5 @@
+<ngx-spinner></ngx-spinner>
+<mat-card-title>Select Your Symptoms</mat-card-title>
 <mat-form-field class="part-select">
   <mat-label id="label">Select Body Part</mat-label>
   <select matNativeControl required id="bodyPart" (change)="getBodyPart($event.target.value)" [disabled]="disabledBody">

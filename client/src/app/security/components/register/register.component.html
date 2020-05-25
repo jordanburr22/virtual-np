@@ -62,6 +62,7 @@
         <input matInput [matDatepicker]="myDatepicker" placeholder="Birth Date" (dateChange)="addEvent($event)" required>
         <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
         <mat-datepicker #myDatepicker></mat-datepicker>
+        <span class="error" *ngIf="validBirth() !== true">You must be 18 years old or older</span>
       </mat-form-field>
       <div class="item">
         <mat-checkbox (click)="isChecked()" required>
@@ -71,7 +72,7 @@
           <b>virtual-np-terms</b>
         </button>
         <p></p>
-        <span class="error" id="termsE"></span>
+        <span class="error" id="termsE" *ngIf="checked!==true"></span>
       </div>
       <button mat-flat-button color=primary (click)="registerClick()" type="submit">
         Sign In

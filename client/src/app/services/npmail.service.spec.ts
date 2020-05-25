@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SymptomsAPIService } from './symptoms-api.service';
+import { NPmailService } from './npmail.service';
 
-describe('SymptomsAPIService', () => {
+describe('NPmailService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: SymptomsAPIService = TestBed.get(SymptomsAPIService);
+    const service: NPmailService = TestBed.get(NPmailService);
     expect(service).toBeTruthy();
   });
 });
