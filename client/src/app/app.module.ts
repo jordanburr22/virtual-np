@@ -21,7 +21,8 @@ import {
   VisitPageComponent,
   CalendarPageComponent,
   UserDataPageComponent,
-  UserDataEditPageComponent
+  UserDataEditPageComponent,
+
 } from './pages';
 
 
@@ -38,6 +39,8 @@ import { NpSignUpComponent } from './pages/np-sign-up/np-sign-up.component';
 import { NpVerifyPageComponent } from './pages/np-verify-page/np-verify-page.component'; 
 import { ScheduleVisitComponent } from './pages/schedule-visit-page/schedule-visit.component';
 import { PreviewVisitComponent } from './pages/preview-visit-page/preview-visit.component';
+import { NpPatientsPageComponent } from './pages/np-patients-page/np-patients-page.component';
+import { NpCalendarPageComponent } from './pages/np-calendar-page/np-calendar-page.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +59,8 @@ import { PreviewVisitComponent } from './pages/preview-visit-page/preview-visit.
     UserDataEditPageComponent,
     NpLandingPageComponent,
     NpVisitPageComponent,
+    NpPatientsPageComponent,
+    NpCalendarPageComponent,
     PaypalPageComponent,
     TermsComponent,
     PatientSignUpComponent,
