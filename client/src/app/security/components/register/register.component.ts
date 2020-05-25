@@ -79,6 +79,7 @@ export class RegisterComponent implements OnInit {
       this.gender,
       this.birthdate,
       this.checked,
+      true,
       this.phone,
       this.street,
       this.city,

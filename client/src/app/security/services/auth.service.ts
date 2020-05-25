@@ -42,7 +42,13 @@ export class AuthService {
     .pipe(
       map((user: any) => {
         this._userSvc.setUser(user);
-        this.router.navigate(['np-landing-page']);
+	if (this._userSvc.getRole() == "Client"){
+		alert("You do not have an authorized NP account. Rerouting to Patient Landing");
+		this.router.navigate(['landing-page']);
+
+	} else if (this._userSvc.getRole() == "Admin"){
+        	this.router.navigate(['np-landing-page']);
+	}
         return user;
       })
     );
@@ -58,7 +64,12 @@ export class AuthService {
     .pipe(
       map((user: any) => {
         this._userSvc.setUser(user);
-        this.router.navigate(['landing-page']);
+	if (this._userSvc.getRole() == "Client"){
+		this.router.navigate(['landing-page']);
+	} else if (this._userSvc.getRole() == "Admin"){
+		alert("You do not have a Patient account. Rerouting to NP Landing");
+        	this.router.navigate(['np-landing-page']);
+	}
         return user;
       })
     );
@@ -78,6 +89,7 @@ export class AuthService {
     gender: String,
     birthdate: String,
     checked: boolean,
+    patient: boolean,
     phone: String,
     street: String,
     city: String,
@@ -97,6 +109,7 @@ export class AuthService {
         gender: gender,
         birthdate: birthdate,
         checked: checked,
+	patient: patient,
         phone: phone,
         street: street,
         city: city,
@@ -125,28 +138,7 @@ export class AuthService {
     zip: String,
     country: String
   ) {
-    return this._http
-    .post(
-      "http://localhost:3000/api/auth/register",
-      {
-        email: email,
-        gender: gender,
-        phone: phone,
-        street: street,
-        city: city,
-        state: state,
-        zip: zip,
-        country: country
-      },
-      { headers: this.headers }
-    )
-    .pipe(
-      map((user: any) => {
-        this._userSvc.setUser(user);
-        this.router.navigate(['landing-page']);
-        return user;
-      })
-    );
+    
   }
 
 }
