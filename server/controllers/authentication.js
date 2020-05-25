@@ -88,6 +88,8 @@ exports.register = function (req, res, next) {
   const gender = req.body.gender;
   const birthdate = req.body.birthdate;
   const checked = req.body.checked;
+  const zip = req.body.zip;
+  const phone = req.body.phone;
   if (!email) {
     return res.status(422).send({
       error: 'You must enter an email address.'
@@ -155,7 +157,9 @@ exports.register = function (req, res, next) {
           firstName: firstName,
           lastName: lastName,
           gender: gender,
-          birthdate: birthdate
+          birthdate: birthdate,
+          zip: zip,
+          phone: phone
         }
       });
       user.save(function (err, user) {

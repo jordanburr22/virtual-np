@@ -19,7 +19,9 @@ const UserSchema = new Schema({
     firstName: {type: String},
     lastName: {type: String},
     gender:{type: String},
-    birthdate: {type: String}
+    birthdate: {type: String},
+    zip: String,
+    phone: String
   },
   role:
   {
