@@ -8,7 +8,7 @@ function generateToken(user) {
   return jwt.sign(user, config.secret, {
     expiresIn: 10080 //in seconds
   });
-}
+} 
 
 function validatedBirthdate(birthdate) {
   var current = new Date();
@@ -87,9 +87,13 @@ exports.register = function (req, res, next) {
   const passwordC = req.body.passwordC;
   const gender = req.body.gender;
   const birthdate = req.body.birthdate;
-  const checked = req.body.checked;
+  const street = req.body.street;
+  const city = req.body.city;
   const zip = req.body.zip;
+  const state = req.body.state;
+  const country = req.body.country;
   const phone = req.body.phone;
+  const checked = req.body.checked;
   if (!email) {
     return res.status(422).send({
       error: 'You must enter an email address.'
@@ -158,7 +162,11 @@ exports.register = function (req, res, next) {
           lastName: lastName,
           gender: gender,
           birthdate: birthdate,
+          street: street,
+          city: city,
           zip: zip,
+          state: state,
+          country: country,
           phone: phone
         }
       });
