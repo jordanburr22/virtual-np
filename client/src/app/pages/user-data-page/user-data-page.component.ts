@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DropdownSelectComponent } from 'src/app/components/dropdown-select/dropdown-select.component';
-import { SymptomsAPIService } from '../../services/symptoms-api.service';
+import { UserService } from 'src/app/security/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-data-page',
@@ -9,15 +9,52 @@ import { SymptomsAPIService } from '../../services/symptoms-api.service';
 })
 export class UserDataPageComponent implements OnInit {
 
-  constructor() {
-    
+  constructor(private router: Router, private userService: UserService) { }
+
+  getFirstName() {
+    return this.userService.getUser().firstName;
   }
 
-  ngOnInit() {
+  getLastName() {
+    return this.userService.getUser().lastName;
   }
 
-}
+  getDOB() {
+    return this.userService.getUser().birthdate;
+  }
 
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
+  getGenderID() {
+    return this.userService.getUser().gender;
+  }
+
+  getAddress() {
+    return this.userService.getUser().street;
+  }
+
+  getCity() {
+    return this.userService.getUser().city;
+  }
+
+  getZip() {
+    return this.userService.getUser().zip;
+  }
+
+  getCountry() {
+    return this.userService.getUser().country;
+  }
+
+  getState() {
+    return this.userService.getUser().state;
+  }
+
+  getEmail() {
+    return this.userService.getUser().email;
+  }
+
+  getPhone() {
+    return this.userService.getUser().phone;
+  }
+
+  ngOnInit() { }
+
 }

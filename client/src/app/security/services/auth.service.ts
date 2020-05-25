@@ -42,7 +42,13 @@ export class AuthService {
     .pipe(
       map((user: any) => {
         this._userSvc.setUser(user);
-        this.router.navigate(['np-landing-page']);
+	if (this._userSvc.getRole() == "Client"){
+		alert("You do not have an authorized NP account. Rerouting to Patient Landing");
+		this.router.navigate(['landing-page']);
+
+	} else if (this._userSvc.getRole() == "Admin"){
+        	this.router.navigate(['np-landing-page']);
+	}
         return user;
       })
     );
@@ -58,7 +64,12 @@ export class AuthService {
     .pipe(
       map((user: any) => {
         this._userSvc.setUser(user);
-        this.router.navigate(['landing-page']);
+	if (this._userSvc.getRole() == "Client"){
+		this.router.navigate(['landing-page']);
+	} else if (this._userSvc.getRole() == "Admin"){
+		alert("You do not have a Patient account. Rerouting to NP Landing");
+        	this.router.navigate(['np-landing-page']);
+	}
         return user;
       })
     );
@@ -77,7 +88,14 @@ export class AuthService {
     lastName: string,
     gender: String,
     birthdate: String,
-    checked: boolean
+    checked: boolean,
+    patient: boolean,
+    phone: String,
+    street: String,
+    city: String,
+    state: String,
+    zip: String,
+    country: String
   ) {
     return this._http
     .post(
@@ -90,7 +108,14 @@ export class AuthService {
         passwordC: passwordC,
         gender: gender,
         birthdate: birthdate,
-        checked: checked
+        checked: checked,
+	patient: patient,
+        phone: phone,
+        street: street,
+        city: city,
+        state: state,
+        zip: zip,
+        country: country
       },
       { headers: this.headers }
     )
@@ -101,6 +126,19 @@ export class AuthService {
         return user;
       })
     );
+  }
+
+  public edit(
+    email: String,
+    gender: String,
+    phone: String,
+    street: String,
+    city: String,
+    state: String,
+    zip: String,
+    country: String
+  ) {
+    
   }
 
 }

@@ -20,6 +20,26 @@ export class PagesService {
       route: '/np-landing-page'
     },
   ];
+  private authPatientPages: Array<Page> = [
+    {
+      name: 'Landing Page',
+      route: '/landing-page'
+    },
+    {
+      name: 'Chat',
+      route: '/user-chat'
+    },
+  ];
+  private authNPPages: Array<Page> = [
+    {
+      name: 'NP Landing Page',
+      route: '/np-landing-page'
+    },
+    {
+      name: 'Chat',
+      route: '/user-chat'
+    },    
+  ];
   private noAuthPages: Array<Page> = [
       {
         name: 'Sign Up',
@@ -30,13 +50,26 @@ export class PagesService {
         route: '/sign-in'
       },
     ];
+  private nullPages: Array<Page> = [];
   private isLoggedIn: boolean = false;
+  private role: string = null;
 
   constructor(private userService: UserService) {
     this.userService.status.subscribe((status) => this.isLoggedIn = status);
+    this.userService.sharedRole.subscribe((npRole) => this.role = npRole);
   }
 
   public getPages() {
-    return this.isLoggedIn ? this.authPages : this.noAuthPages
+    if (this.isLoggedIn){
+	if (this.userService.getRole() == null){
+		return this.nullPages;
+	}else if (this.userService.getRole() == "Client"){
+		return this.authPatientPages;
+	}else if (this.userService.getRole() == "Admin"){
+		return this.authNPPages;
+	}
+    } else {
+	return this.noAuthPages;
+    }
   }
 }
