@@ -10,7 +10,7 @@ export class UserService {
 
   constructor() {
     this.status.next(this.getUser() != null);
-  }
+  } 
 
   // Add or remove user to/from local memory
   setUser(user: any) {

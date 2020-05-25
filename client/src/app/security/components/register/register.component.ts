@@ -23,6 +23,12 @@ export class RegisterComponent implements OnInit {
   birthdate: string;
   matched: boolean;
   checked: boolean;
+  phone: String;
+  street: String;
+  city: String;
+  state: String;
+  zip: String;
+  country: String;
 
   constructor(private _authSvc: AuthService, private _mailSvc: NPmailService, public dialog: MatDialog) { }
 
@@ -62,7 +68,7 @@ export class RegisterComponent implements OnInit {
 
   registerClick() {
     $('#termsE').text(
-      'You must agree terms and conditions'
+      'You must agree to the terms and conditions'
     );
     this._authSvc.register(
       this.email,
@@ -73,6 +79,12 @@ export class RegisterComponent implements OnInit {
       this.gender,
       this.birthdate,
       this.checked,
+      this.phone,
+      this.street,
+      this.city,
+      this.state,
+      this.zip,
+      this.country
     ).subscribe(
       data => console.log('Data:' + data),
       err => console.log(err)
@@ -99,7 +111,7 @@ export class RegisterComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.email = this.password = this.firstName = this.lastName = this.gender = this.passwordC = '';
+    this.phone = this.street = this.city = this.zip = this.country = this.email = this.password = this.firstName = this.lastName = this.gender = this.passwordC = '';
     this.checked = false;
     for (var i = 18;  i < 100; i++){
       this.ages.push(i);
