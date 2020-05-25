@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SignUpPageComponent } from './sign-up-page.component';
+import { ARIA_DESCRIBER_PROVIDER } from '@angular/cdk/a11y';
+import { ExpectedConditions } from 'protractor';
 
 describe('SignUpPageComponent', () => {
   let component: SignUpPageComponent;

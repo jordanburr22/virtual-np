@@ -1,0 +1,74 @@
+<div  class="page-container">
+<mat-card id="sign-up-card">
+  <mat-card-header>
+    <mat-card-title>Create an account</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-subtitle>
+	Your information has been forwarded to the administrator. They will contact you shortly to verify your credentials and provide an access code.
+  </mat-card-subtitle>
+
+  <mat-card-content>
+    <div class="form-container" (keyup.enter)="registerClick()">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Access Code</mat-label>
+        <input matInput [(ngModel)]="enteredCode" placeholder="123456" type="string" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="email" placeholder="Email" type="email" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput [(ngModel)]="firstName" placeholder="First Name" type="text" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput [(ngModel)]="lastName" placeholder="Last Name" type="text" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput [(ngModel)]="password" placeholder="Password" type="password" (change)="passwordMatch()"
+          required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput [(ngModel)]="passwordC" placeholder="Confirm Password" type="password" (change) = "passwordMatch()" required>
+        <span class="error" *ngIf="matched"> Password does not match </span>
+      </mat-form-field>
+
+     <mat-form-field appearance="outline">
+        <mat-label>Sex</mat-label>
+        <mat-select [(ngModel)]="gender" placeholder="Gender" type="text" required>
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let gender of genders" [value]="gender">{{gender}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+     <mat-form-field appearance="outline">
+        <mat-label>Birthdate</mat-label>
+        <input matInput [(ngModel)]="birthdate" placeholder="MM/DD/YYYY" type="date" required>
+      </mat-form-field>
+
+      <div class="item">
+        <p>By clicking Create Account, you agree to Virtual-NP's
+        <button class="link" (click)="openDialog()">
+          <b>terms and conditions.</b>
+        </button>
+        </p>
+      </div>
+
+      <button mat-flat-button color=primary (click)="registerClick()" type="submit">
+        Create Account
+      </button>
+
+    </div>
+  </mat-card-content>
+</mat-card>
+</div>

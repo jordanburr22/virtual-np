@@ -94,6 +94,13 @@ exports.register = function (req, res, next) {
   const country = req.body.country;
   const phone = req.body.phone;
   const checked = req.body.checked;
+  const patient = req.body.patient;
+
+  if (patient)
+	role = securityService.roles.REQUIRE_CLIENT;
+  else
+	role = securityService.roles.REQUIRE_ADMIN;
+
   if (!email) {
     return res.status(422).send({
       error: 'You must enter an email address.'
@@ -156,7 +163,7 @@ exports.register = function (req, res, next) {
       let user = new User({
         email: email,
         password: password,
-        role: securityService.roles.REQUIRE_CLIENT,
+        role: role,
         profile: {
           firstName: firstName,
           lastName: lastName,
