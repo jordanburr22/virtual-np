@@ -16,6 +16,7 @@ export class UserService {
 
   }
 
+
   // Add or remove user to/from local memory
   setUser(user: any) {
     if (user) {

@@ -6,8 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { SecurityModule } from './security/security.module';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import {
@@ -35,6 +36,8 @@ import { NPmailService } from './services/npmail.service';
 import { PatientSignUpComponent } from './pages/patient-sign-up/patient-sign-up.component';
 import { NpSignUpComponent } from './pages/np-sign-up/np-sign-up.component';
 import { NpVerifyPageComponent } from './pages/np-verify-page/np-verify-page.component'; 
+import { ScheduleVisitComponent } from './pages/schedule-visit-page/schedule-visit.component';
+import { PreviewVisitComponent } from './pages/preview-visit-page/preview-visit.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +61,8 @@ import { NpVerifyPageComponent } from './pages/np-verify-page/np-verify-page.com
     PatientSignUpComponent,
     NpSignUpComponent,
     NpVerifyPageComponent
+    ScheduleVisitComponent,
+    PreviewVisitComponent
   ],
   imports: [
     AppRoutingModule,
@@ -69,7 +74,10 @@ import { NpVerifyPageComponent } from './pages/np-verify-page/np-verify-page.com
     FormsModule,
     NgbModule,
     MatDialogModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-center'
+    })
   ],
   providers: [
     { provide: DropdownSelectComponent, useClass: DropdownSelectComponent }

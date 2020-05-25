@@ -1,18 +1,21 @@
-import { Patient } from "./patient.model";
-import { Symptom } from "./symptom.model";
+import { Patient } from './patient.model';
+import { Symptom } from './symptom.model';
 
 export class Visit {
-  private patient: Patient;
-  private timeDateCreated: Date;
-  private timeDateOfVisit: Date;
-  private type: string;
-  private symptoms: Symptom[];
-
-  constructor(patient: Patient) {
-    this.patient = patient;
+  public patient: Patient;
+  public timeDateCreated: Date;
+  public timeDateOfVisit: Date;
+  public type: string;
+  public symptoms: Symptom[];
+  public phone: string;
+  public visitemail: string;
+  public timesAvailable: string; // TODO will change
+  constructor() {
+    this.symptoms = [];
   }
 
-  setSymptoms(symptoms: Symptom[]) {
-    this.symptoms = symptoms;
+  addSymptom(symptom: Symptom) {
+    this.symptoms.push(symptom);
   }
+
 }

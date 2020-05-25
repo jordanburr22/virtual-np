@@ -23,6 +23,12 @@ export class RegisterComponent implements OnInit {
   birthdate: string;
   matched: boolean;
   checked: boolean;
+  phone: String;
+  street: String;
+  city: String;
+  state: String;
+  zip: String;
+  country: String;
 
   constructor(private _authSvc: AuthService, private _mailSvc: NPmailService, public dialog: MatDialog) { }
 
@@ -32,13 +38,37 @@ export class RegisterComponent implements OnInit {
   ];
   ages: number[] = [];
   
+  // validBirth used to check if the person's age is 18 years old or older
+  validBirth() {
+    if (this.birthdate == null)
+      return true;
+    var current = new Date();
+    var date = this.birthdate.split("/");
+
+    var age = current.getFullYear() - parseInt(date[0]);
+    var m = current.getMonth() - parseInt(date[1]) + 1;
+    var d = current.getDate() - parseInt(date[2]);
+    if (age > 18){
+      return true;
+    }else if (age == 18) {
+      if (m > 0) {
+        return true;
+      }else if (m == 0) {
+        return d >= 0;
+      }
+    }
+    return false;
+  }
+
+  // addEvent will change birthdate when we choose a date from the calendar
   addEvent(event: MatDatepickerInputEvent<Date>) {
     var date = new Date(`${event.value}`);
     this.birthdate = date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate();
   }
+
   registerClick() {
     $('#termsE').text(
-      'You must agree terms and conditions'
+      'You must agree to the terms and conditions'
     );
     this._authSvc.register(
       this.email,
@@ -49,7 +79,13 @@ export class RegisterComponent implements OnInit {
       this.gender,
       this.birthdate,
       this.checked,
-      true
+      true,
+      this.phone,
+      this.street,
+      this.city,
+      this.state,
+      this.zip,
+      this.country
     ).subscribe(
       data => console.log('Data:' + data),
       err => console.log(err)
@@ -62,10 +98,13 @@ export class RegisterComponent implements OnInit {
     );
   }
 
+  // isChecked used to check whether or not the checkbox is being checked
   isChecked() {
     this.checked = !this.checked;
     console.log(this.checked);
   }
+  
+  // openDialog will open a new dialog window contains information of terms and conditions
   openDialog(): void {
     const dialogRef = this.dialog.open(TermsComponent, {
       width: '70%',
@@ -73,12 +112,14 @@ export class RegisterComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.email = this.password = this.firstName = this.lastName = this.gender = this.passwordC = '';
+    this.phone = this.street = this.city = this.zip = this.country = this.email = this.password = this.firstName = this.lastName = this.gender = this.passwordC = '';
     this.checked = false;
     for (var i = 18;  i < 100; i++){
       this.ages.push(i);
     }
   }
+  
+  // passwordMatch checkes if the password comfirmation is the same as the password 
   passwordMatch() {
     this.matched =  this.password !== this.passwordC;
   }

@@ -1,0 +1,30 @@
+<div class="page-container">
+  <mat-card>
+    <mat-card-title id="confirm" style="text-align: center;">Preview Your Visit</mat-card-title>
+    <mat-card-content>
+      Symptoms: 
+    <ul>
+      <li *ngFor="let symptom of visit.symptoms">
+        {{ symptom.sublocation }} - {{ symptom.name }}
+      </li>
+    </ul>
+    </mat-card-content>
+    <mat-card-content>
+      Type of visit: {{ visit.type }}
+    </mat-card-content>
+    <mat-card-content>
+      Phone: {{ visit.phone }}
+    </mat-card-content>
+    <mat-card-content>
+      Email: {{ visit.visitemail }}
+    </mat-card-content>
+    <mat-card-content>
+      Times Available: {{ visit.timesAvailable }}
+    </mat-card-content>
+    <mat-card-content>
+      <button mat-flat-button id="submit" routerLink="/landing-page" (click)="onSubmit()">
+        Confirm Visit
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>

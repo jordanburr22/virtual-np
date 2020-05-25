@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SymptomsAPIService } from '../../services/symptomsAPI/symptoms-api.service';
+import { SymptomsAPIService } from '../../services/symptoms-api.service';
 import { Symptom } from '../../models/symptom.model';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { VisitService } from 'src/app/services/visit.service';
@@ -14,6 +14,7 @@ export class DropdownSelectComponent implements OnInit {
   private disabledBody = true;
   private disabledSubBody = true;
   private disabledSymptoms = true;
+  private loading = true;
 
   private bodyPartsObservable: any;
   private bodyParts: string[] = [];
@@ -27,14 +28,14 @@ export class DropdownSelectComponent implements OnInit {
   private subIDs: number[] = [];
 
   private symptomsObservables: any[] = [];
-  private symptoms: Symptom[] = [];
+  symptoms: Symptom[] = [];
 
   private tempSymptom: Symptom;
   private addedSymptoms: Symptom[] = [];
   private hiddenHeader = true;
 
   constructor(private myAPISvc: SymptomsAPIService, private spinner: NgxSpinnerService, private visitService: VisitService) {
-    this.spinner.show();
+    this.toggleSpinner();
     this.bodyPartsObservable = myAPISvc.getBodyLocations();
     this.bodyPartsObservable.subscribe(data => {
       for (let i = 0; i < data.length; i++) {
@@ -42,7 +43,7 @@ export class DropdownSelectComponent implements OnInit {
         this.bodyIDs.push(data[i].ID);
       }
       this.disabledBody = false;
-      this.spinner.hide();
+      this.toggleSpinner();
     });
   }
 
@@ -53,6 +54,9 @@ export class DropdownSelectComponent implements OnInit {
    * gets sublocations of chosen body location
    */
   getSublocations() {
+
+    this.toggleSpinner();
+    this.disabledSymptoms = true;
 
     // First clear sublocations and sublocation IDs
     this.sublocations = [];
@@ -74,6 +78,7 @@ export class DropdownSelectComponent implements OnInit {
         this.sublocations.push(data[i].Name);
         this.subIDs.push(data[i].ID);
       }
+      this.toggleSpinner();
     });
   }
 
@@ -81,6 +86,7 @@ export class DropdownSelectComponent implements OnInit {
    * gets sublocations symptoms depending on chosen sublocation
    */
   getSublocationSymptoms() {
+    this.toggleSpinner();
     // Find id
     let chosenSubBodyPartID: number;
     for (let i = 0; i < this.sublocations.length; i++) {
@@ -113,8 +119,8 @@ export class DropdownSelectComponent implements OnInit {
         for (let j = 0; j < data.length; j++) {
           this.symptoms.push(new Symptom(data[j].Name, this.chosenSubBodyLocation));
         }
+        this.toggleSpinner();
     });
-
   }
 
   getBodyPart(sel: any) {
@@ -132,8 +138,12 @@ export class DropdownSelectComponent implements OnInit {
   addSymptom() {
     this.addedSymptoms.push(this.tempSymptom);
     this.hiddenHeader = false;
-    this.disabledSubBody = true;
-    this.disabledSymptoms = true;
+    this.visitService.addSymptom(this.tempSymptom);
+  }
+
+  private toggleSpinner() {
+    this.loading ? this.spinner.show() : this.spinner.hide();
+    this.loading = !this.loading;
   }
 
 }

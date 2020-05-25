@@ -18,6 +18,7 @@ import { PaypalPageComponent } from './pages/paypal-page/paypal-page.component';
 import { PatientSignUpComponent } from './pages/patient-sign-up/patient-sign-up.component';
 import { NpSignUpComponent } from './pages/np-sign-up/np-sign-up.component';  
 import { NpVerifyPageComponent } from './pages/np-verify-page/np-verify-page.component'; 
+import { PreviewVisitComponent } from './pages/preview-visit-page/preview-visit.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -36,7 +37,8 @@ const routes: Routes = [
   { path: 'patient-sign-up', component: PatientSignUpComponent },
   { path: 'np-sign-up', component: NpSignUpComponent },
   { path: 'np-verification', component: NpVerifyPageComponent },
- 
+  { path: 'preview-visit-page', component: PreviewVisitComponent, canActivate: [AuthGuard]}
+
 ];
 
 @NgModule({
