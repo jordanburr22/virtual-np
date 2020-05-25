@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
   }
   registerClick() {
     $('#termsE').text(
-      'You must agree terms and conditions'
+      'You must agree to the terms and conditions'
     );
     this._authSvc.register(
       this.email,

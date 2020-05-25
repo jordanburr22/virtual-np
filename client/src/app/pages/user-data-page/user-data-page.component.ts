@@ -20,7 +20,7 @@ export class UserDataPageComponent implements OnInit {
   }
 
   getDOB() {
-    return this.userService.getUser();
+    return this.userService.getUser().birthdate;
   }
 
   getGenderID() {
@@ -28,7 +28,7 @@ export class UserDataPageComponent implements OnInit {
   }
 
   getAddress() {
-    return this.userService.getUser().address;
+    return this.userService.getUser().street;
   }
 
   getCity() {
@@ -57,8 +57,4 @@ export class UserDataPageComponent implements OnInit {
 
   ngOnInit() { }
 
-}
-
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
 }

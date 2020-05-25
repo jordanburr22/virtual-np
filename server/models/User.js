@@ -19,7 +19,13 @@ const UserSchema = new Schema({
     firstName: {type: String},
     lastName: {type: String},
     gender:{type: String},
-    birthdate: {type: String}
+    birthdate: {type: String},
+    street: {type: String},
+    city: {type: String},
+    zip: {type: String},
+    country: {type: String},
+    state: {type: String},
+    phone: {type: String}
   },
   role:
   {
@@ -67,6 +73,12 @@ UserSchema.methods.toJson = function(){
     email: this.email,
     role: this.role,
     password: this.password,
+    phone: this.profile.phone,
+    street: this.profile.street,
+    city: this.profile.city,
+    zip: this.profile.zip,
+    state: this.profile.state,
+    country: this.profile.country
     // provider: this.provider
   }
 }
