@@ -36,7 +36,8 @@ export class PaypalPageComponent implements OnInit {
           });
         },
         onApprove: async (data, actions) => {
-          //do not need to capture payments here, can send data from callback to backend server later **
+          //do not need to capture payments here, 
+          //can send data from callback to backend server later **
           const order = await actions.order.capture();
           this.paidFor = true;
           console.log(order);
